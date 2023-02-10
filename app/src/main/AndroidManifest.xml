@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:amazon="http://schemas.amazon.com/apk/res/android"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.mypushnotificationapplication"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <permission
+        android:name="com.example.mypushnotificationapplication.permission.RECEIVE_ADM_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.example.mypushnotificationapplication.permission.RECEIVE_ADM_MESSAGE" /> <!-- This permission allows your app access to receive push notifications from ADM. -->
+    <uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE" /> <!-- ADM uses WAKE_LOCK to keep the processor from sleeping when a message is received. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyPushNotificationApplication"
+        tools:targetApi="31" >
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <amazon:enable-feature
+            android:name="com.amazon.device.messaging"
+            android:required="true" />
+        <meta-data android:name="MyNotificationApplicationKey" android:value="eyJhbGciOiJSU0EtU0hBMjU2IiwidmVyIjoiMSJ9.eyJ2ZXIiOiIzIiwiZW5kcG9pbnRzIjp7ImF1dGh6IjoiaHR0cHM6Ly93d3cuYW1hem9uLmNvbS9hcC9vYSIsInRva2VuRXhjaGFuZ2UiOiJodHRwczovL2FwaS5hbWF6b24uY29tL2F1dGgvbzIvdG9rZW4ifSwiY2xpZW50SWQiOiJhbXpuMS5hcHBsaWNhdGlvbi1vYTItY2xpZW50LmQ5MDhkNTAwN2MwYzRhMWZiZjMzOWNlMmRhMTQ2YTczIiwiYXBwRmFtaWx5SWQiOiJhbXpuMS5hcHBsaWNhdGlvbi5lOTk5NTI0ZGUyNjM0MmVjYTllMzE0ZDNiN2EwOTg2MSIsImlzcyI6IkFtYXpvbiIsInR5cGUiOiJBUElLZXkiLCJwa2ciOiJjb20uZXhhbXBsZS5teXB1c2hub3RpZmljYXRpb25hcHBsaWNhdGlvbiIsImFwcFZhcmlhbnRJZCI6ImFtem4xLmFwcGxpY2F0aW9uLWNsaWVudC5mZTc1NWJlNjY0NGE0ZWQ2YjI5ODY2MjBjNjU4MDc2MiIsInRydXN0UG9vbCI6bnVsbCwiYXBwc2lnU2hhMjU2IjoiOEY6Nzk6QTA6NTQ6ODM6RjA6ODg6NjA6MDI6RjI6MjA6ODQ6RTQ6NEQ6RDA6OEM6MDU6NTk6RDU6OEE6NEQ6MkI6RDQ6OTE6QjA6OEU6NzE6OUI6OUQ6Qzg6Qjc6QzAiLCJhcHBzaWciOiJFNzoxNTpFRTo1ODozMTpGMzo5NTo3OTozMDpCNjpGMjo2ODpGRTo3MTo1MjpDMSIsImFwcElkIjoiYW16bjEuYXBwbGljYXRpb24tY2xpZW50LmZlNzU1YmU2NjQ0YTRlZDZiMjk4NjYyMGM2NTgwNzYyIiwiaWQiOiJhNjFmZDYzNC0yMzdhLTQ3MTUtYWQ3ZC1jNzVmYTlkN2U4ZGYiLCJpYXQiOiIxNjc0NzUwNzQwMTYzIn0=.LsfcFJxQyS2RrQFAIiwwImUqb+pDvsxvw1TrsHUgVvF84bLyJf797Lg3F4z8Shs5/VqDzleXxb825Z6Dj8pfkxbEfrL1TmFvBIOs8taQR8grTvr2BIHyjl0sA3NCrDcDGM7odTG0J+Mm7g87zIXDBgU1XhaqID+Vlc+oz0xSv/Vn+f/yeD+MYsNGkFRmPSCzOxi9t/SDRPJ10NwKNsHO6XpjSghnLmtzp1H/owYx/T6CTbCkubu4zKFRQLbqFeMkdHv9G7ISjjbVca/QqJ20mi1jyPieHZA89QuUzwC9JH4rPVlr45tjJDHQwa2PBcpzMdVGBEUWWokEbviAUlPhBQ==">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+        </meta-data>
+            <service
+            android:name=".MyADMLegacyMessageHandler"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            tools:ignore="Instantiatable" />
+
+        <receiver
+            android:name=".Receiver"
+            android:exported="true"
+            android:permission="com.amazon.device.messaging.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.amazon.device.messaging.intent.REGISTRATION" />
+                <action android:name="com.amazon.device.messaging.intent.RECEIVE" />
+
+                <category android:name="com.example.mypushnotificationapplication" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
