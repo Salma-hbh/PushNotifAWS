@@ -2,6 +2,7 @@ package com.example.mypushnotificationapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -24,14 +25,19 @@ public class MainActivity extends AppCompatActivity {
         }
         if (ADMAvailable) {
             final ADM adm = new ADM(this);
-            if (adm.getRegistrationId() == null) {
-                // startRegister() is asynchronous; your app is notified via the
-                // onRegistered() callback when the registration ID is available.
+            if (adm.isSupported()) {
                 adm.startRegister();
-                Toast.makeText(MainActivity.this, "Your reg id is" + adm.getRegistrationId(), Toast.LENGTH_SHORT).show();
-                etToken.setText(adm.getRegistrationId());
             }
-            
+            Toast.makeText(MainActivity.this, "Your reg id is" + adm.getRegistrationId(), Toast.LENGTH_SHORT).show();
+            etToken.setText(adm.getRegistrationId());
+           // if (adm.getRegistrationId() == null) {
+           //     // startRegister() is asynchronous; your app is notified via the
+           //     // onRegistered() callback when the registration ID is available.
+           //     adm.startRegister();
+           //     Toast.makeText(MainActivity.this, "Your reg id is" + adm.getRegistrationId(), Toast.LENGTH_SHORT).show();
+           //     etToken.setText(adm.getRegistrationId());
+           // }
+
 
         }
     }

@@ -38,11 +38,11 @@
             android:required="true"/>
 
             <service
-            android:name="com.amazon.device.messaging.ADMMessageHandlerBase"
+            android:name="com.example.mypushnotificationapplication.MyADMLegacyMessageHandler"
             android:exported="false"
             />
         <receiver
-            android:name="com.amazon.device.messaging.ADMMessageReceiver"
+            android:name="com.example.mypushnotificationapplication.Receiver"
             android:exported="true"
             android:permission="com.amazon.device.messaging.permission.SEND" >
             <intent-filter>
